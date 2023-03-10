@@ -1,43 +1,126 @@
-.app{
+.app {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+
   border-radius: 5px;
   width: fit-content;
-  padding:10px;
+  padding: 10px;
   text-align: center;
-  gap:10px;
+  gap: 10px;
   align-items: stretch;
-
 }
 
-html{
+html {
   display: flex;
   justify-content: center;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: row;
-  gap:10px;
+  gap: 10px;
+  justify-content: center;
 }
 
-.todo-list{
-  padding:0;
-  margin: 0;
+.todo-list {
+  padding: 20px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   list-style-type: none;
-  gap:10px;
+
+  gap: 10px;
+  width: 500px;
+  height: 300px;
+}
+.completed-list {
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+
+  gap: 10px;
+  width: 500px;
+  height: 300px;
 }
 
-.todo-list li{
+.completed-list li {
   display: flex;
   justify-content: space-between;
 }
-.todo-list li span{
+.completed-list li span {
   flex-grow: 1;
   text-align: center;
 }
 
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list li span {
+  flex-grow: 1;
+  text-align: center;
+}
 
+.container {
+  display: flex;
+  padding: 25px;
+}
+
+.submit-btn {
+  height: 40px;
+  width: 75px;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: grey;
+  color: white;
+}
+
+.delete-btn {
+  border-radius: 4px;
+  border-color: black;
+  color: black;
+  background-color: rgb(211, 6, 43);
+  height: 40px;
+  width: 75px;
+  font-weight: bold;
+}
+
+.edit-btn {
+  border-radius: 4px;
+  border-color: black;
+  color: black;
+  background-color: greenyellow;
+  height: 40px;
+  width: 75px;
+  font-weight: bold;
+}
+.pending {
+  justify-self: right;
+  height: 40px;
+  width: 75px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+}
+.completed {
+  height: 40px;
+  width: 75px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+  float: left;
+}
+.todo-list li {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+.todo-list li span {
+  margin-top: 15px;
+  flex-grow: 1;
+  text-align: center;
+}

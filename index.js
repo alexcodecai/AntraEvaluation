@@ -174,10 +174,17 @@ const Controller = ((view, model) => {
                 3. update view
             */
       const inputValue = view.inputEl.value;
-      model.createTodo({ content: inputValue, completed: false }).then(data => {
-        state.todos = [data, ...state.todos];
-        view.clearInput();
-      });
+      if (inputValue === "") {
+        alert("please add tasks before submit");
+      }
+      if (inputValue !== "") {
+        model
+          .createTodo({ content: inputValue, completed: false })
+          .then(data => {
+            state.todos = [data, ...state.todos];
+            view.clearInput();
+          });
+      }
     });
   };
 
