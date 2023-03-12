@@ -14,34 +14,6 @@
 
 */
 
-//read
-/* fetch("http://localhost:3000/todos")
-    .then((res) => res.json())
-    .then((data) => {
-        console.log(data);
-    }); */
-
-// const APIs = (() => {
-//   const createTodo = newTodo => {
-//     return fetch("http://localhost:3000/todos", {
-//       method: "POST",
-//       body: JSON.stringify(newTodo),
-//       headers: { "Content-Type": "application/json" }
-//     }).then(res => res.json());
-//   };
-
-//   const deleteTodo = id => {
-//     return fetch("http://localhost:3000/todos/" + id, {
-//       method: "DELETE"
-//     }).then(res => res.json());
-//   };
-
-//   const getTodos = () => {
-//     return fetch("http://localhost:3000/todos").then(res => res.json());
-//   };
-//   return { createTodo, deleteTodo, getTodos, editTodo };
-// })();
-
 const APIs = (() => {
   const createTodo = newTodo => {
     return fetch("http://localhost:3000/todos", {
@@ -59,7 +31,7 @@ const APIs = (() => {
 
   const editTodo = (id, content) => {
     return fetch("http://localhost:3000/todos/" + id, {
-      method: "PUT",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(content)
     }).then(res => res.json());
@@ -164,7 +136,7 @@ const Controller = ((view, model) => {
       console.log(state.todos);
     });
   };
-  let editCount = 0;
+  let editCount = true;
 
   const handleSubmit = () => {
     view.submitBtnEl.addEventListener("click", event => {
@@ -212,7 +184,7 @@ const Controller = ((view, model) => {
 
   const handleEdit = () => {
     if (event.target.className === "edit-btn") {
-      if (editCount == 0) {
+      if (editCount === true) {
         event.target.previousSibling.setAttribute("contentEditable", true);
         event.target.previousSibling.style.backgroundColor = "grey";
         editCount++;
@@ -226,7 +198,7 @@ const Controller = ((view, model) => {
           state.todos[index].content = newContent;
           view.renderTodos(state.todos);
         });
-        editCount = 0;
+        editCount = !editCount;
       }
     }
   };
