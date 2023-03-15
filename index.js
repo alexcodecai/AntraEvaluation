@@ -136,7 +136,7 @@ const Controller = ((view, model) => {
       console.log(state.todos);
     });
   };
-  let editCount = true;
+  let editable = true;
 
   const handleSubmit = () => {
     view.submitBtnEl.addEventListener("click", event => {
@@ -184,10 +184,10 @@ const Controller = ((view, model) => {
 
   const handleEdit = () => {
     if (event.target.className === "edit-btn") {
-      if (editCount === true) {
+      if (editable === true) {
         event.target.previousSibling.setAttribute("contentEditable", true);
         event.target.previousSibling.style.backgroundColor = "grey";
-        editCount = !editCount;
+        editable = !editable;
       } else {
         event.target.previousSibling.setAttribute("contentEditable", false);
         let newContent = event.target.previousSibling.innerText;
@@ -198,7 +198,7 @@ const Controller = ((view, model) => {
           state.todos[index].content = newContent;
           view.renderTodos(state.todos);
         });
-        editCount = !editCount;
+        editable = !editable;
       }
     }
   };
