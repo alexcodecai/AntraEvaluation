@@ -187,7 +187,7 @@ const Controller = ((view, model) => {
       if (editCount === true) {
         event.target.previousSibling.setAttribute("contentEditable", true);
         event.target.previousSibling.style.backgroundColor = "grey";
-        editCount++;
+        editCount = !editCount;
       } else {
         event.target.previousSibling.setAttribute("contentEditable", false);
         let newContent = event.target.previousSibling.innerText;
